@@ -1,0 +1,20 @@
+{
+  "name": "nodelol-dashboard",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev:start": "nodemon index.js",
+    "dev:client": "npm start --prefix client",
+    "dev": "concurrently \"npm run dev:start\" \"npm run dev:client\""
+  },
+  "author": "frasergr",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.1"
+  }
+}
