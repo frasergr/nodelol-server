@@ -10,13 +10,16 @@ const app = express();
 app.use(express.json());
 
 app.use('/api/items', require('./routes/api/items'));
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
 
 mongoose
     .connect('mongodb://' + process.env.MONGO_HOST + ':27017/' + process.env.MONGO_DB, {
         "user": process.env.MONGO_DB_USER,
         "pass": process.env.MONGO_DB_PASSWORD,
         "authSource": process.env.MONGO_DB,
-        useNewUrlParser: true
+        useNewUrlParser: true,
+        useCreateIndex: true
     })
     .then(() => console.log('MongoDB Connected...'))
     .catch(error => console.log(error));
