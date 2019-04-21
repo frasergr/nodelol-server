@@ -12,9 +12,7 @@ router.post('/', (req, res) => {
     const { name, email, password } = req.body;
 
     // Check if all fields have data
-    if (!name || !email || !password) {
-        return res.status(400).json({ msg: 'Please enter all fields' });
-    }
+    if (!name || !email || !password) return res.status(400).json({ msg: 'Please enter all fields' });
 
     // Search db for user
     User.findOne({ email })
